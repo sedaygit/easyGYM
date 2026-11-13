@@ -1,0 +1,203 @@
+@import './styles/theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--tp-canvas);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--tp-ink);
+    font-family: var(--tp-font-body);
+    font-size: 15px;
+    line-height: 1.55;
+    letter-spacing: var(--tp-track-display);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--tp-font-display);
+    font-weight: var(--tp-w-display);
+    letter-spacing: var(--tp-track-display);
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  button {
+    font-family: inherit;
+    letter-spacing: inherit;
+    cursor: pointer;
+  }
+
+  input,
+  select {
+    font-family: inherit;
+    color: inherit;
+  }
+
+  ::selection {
+    background: var(--tp-acc);
+    color: var(--tp-acc-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--tp-acc);
+    outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--tp-line);
+    border-radius: var(--tp-r-btn);
+  }
+}
+
+@layer components {
+  .plate {
+    background: var(--tp-surf);
+    border: var(--tp-bw) solid var(--tp-line);
+    border-radius: var(--tp-r);
+    backdrop-filter: var(--tp-blur);
+    -webkit-backdrop-filter: var(--tp-blur);
+  }
+
+  .plate-2 {
+    background: var(--tp-surf-2);
+    border: var(--tp-bw) solid var(--tp-line);
+    border-radius: var(--tp-r-sm);
+  }
+
+  .press {
+    transition: transform var(--tp-dur) var(--tp-ease),
+      box-shadow var(--tp-dur) var(--tp-ease),
+      background-color var(--tp-dur) var(--tp-ease),
+      border-color var(--tp-dur) var(--tp-ease),
+      color var(--tp-dur) var(--tp-ease);
+  }
+  .press:active {
+    transform: scale(var(--tp-press));
+  }
+
+  .display-hero {
+    font-size: clamp(38px, 9vw, var(--tp-hero));
+    line-height: 0.98;
+    font-weight: 300;
+  }
+
+  .display-xl {
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.08;
+  }
+
+  .eyebrow {
+    font-family: var(--tp-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--tp-mute);
+  }
+
+  .num {
+    font-family: var(--tp-font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .glow-edge {
+    box-shadow: var(--tp-sh-sm);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* anatomical figure */
+  .muscle-region {
+    cursor: pointer;
+    fill: var(--tp-acc);
+    fill-opacity: 0;
+    stroke: var(--tp-acc);
+    stroke-opacity: 0;
+    stroke-width: 2;
+    transition: fill-opacity var(--tp-dur) var(--tp-ease),
+      stroke-opacity var(--tp-dur) var(--tp-ease);
+    outline: none;
+  }
+
+  .muscle-region.is-limbs {
+    fill: none;
+    fill-opacity: 0;
+  }
+
+  .muscle-region:hover {
+    fill-opacity: 0.18;
+    stroke-opacity: 0.5;
+  }
+
+  .muscle-region.is-limbs:hover {
+    stroke-opacity: 0.45;
+  }
+
+  .muscle-region.is-on {
+    fill-opacity: 0.42;
+    stroke-opacity: 0.95;
+  }
+
+  .muscle-region.is-limbs.is-on {
+    stroke-opacity: 1;
+  }
+
+  .muscle-region.is-on:hover {
+    fill-opacity: 0.5;
+  }
+
+  .body-base {
+    fill: var(--tp-surf-2);
+    stroke: var(--tp-line);
+    stroke-width: 1.5;
+    pointer-events: none;
+  }
+
+  .body-line {
+    fill: none;
+    stroke: var(--tp-surf-2);
+    stroke-linecap: round;
+    stroke-width: 26;
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 0px);
+  }
+}
