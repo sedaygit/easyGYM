@@ -1,7 +1,7 @@
-# easyGYM
+# easyGYM -en
 A modern, responsive fitness web application built with React, Vite, and Tailwind CSS. Track workouts, monitor progress, and customize your training experience with bilingual support (EN/TR).
 
-# easyGYM
+# easyGYM -tr
 
 **easyGYM**, kullanıcının hedeflediği kas gruplarına göre egzersiz rutini oluşturmasına, antrenmanını adım adım takip etmesine ve gelişimini yerel olarak kaydetmesine yardımcı olan, React ve Vite ile geliştirilmiş responsive bir fitness web uygulamasıdır.
 
